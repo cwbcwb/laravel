@@ -42,9 +42,11 @@ class PosterController extends Controller
         $srcW = imagesx($srcImg);
         $srcH = imagesy($srcImg);
         imagecopy($imageRes, $srcImg, $qrcodeX, $qrcodeY, 0, 0, $srcW, $srcH);
+        /* 生成图片。*/
         ob_clean();
         header("Content-type:image/jpeg");
         imagejpeg($imageRes);
         imagedestroy($imageRes);
+
     }
 }
